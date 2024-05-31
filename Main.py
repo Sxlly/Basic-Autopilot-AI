@@ -17,6 +17,19 @@ openImg = cv2.imread(initImg)
 #*** convert image to black and white for reading
 bnwImage = cv2.cvtColor(openImg, cv2.COLOR_BGR2GRAY)
 
-cv2.imshow("Basic AutoPilot AI", bnwImage)
+#*** train car_tracker variable to indentify a car accuratley through reading pre made xml car dataset
+carTracker = cv2.CascadeClassifier(pretrainedCars)
+
+#*** detect cars in bnw image
+cars = carTracker.detectMultiScale(bnwImage)
+
+print(cars)
+
+for (x, y, w, h) in cars:
+    cv2.rectangle(openImg, (x,y), (x+w, y+h), (0,255,0), 2)
+
+
+cv2.imshow("Basic AutoPilot AI", openImg)
 cv2.waitKey()
+
 
