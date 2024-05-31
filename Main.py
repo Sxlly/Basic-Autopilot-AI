@@ -14,5 +14,9 @@ pretrainedPedestrains = "haarcascadePedestrianDataSet.xml"
 #*** create opencv image
 openImg = cv2.imread(initImg)
 
-cv2.imshow("Basic AutoPilot AI", openImg)
+#*** convert image to black and white for reading
+bnwImage = cv2.cvtColor(openImg, cv2.COLOR_BGR2GRAY)
+
+cv2.imshow("Basic AutoPilot AI", bnwImage)
 cv2.waitKey()
+
