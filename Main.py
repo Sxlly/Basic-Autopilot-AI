@@ -25,8 +25,9 @@ cars = carTracker.detectMultiScale(bnwImage)
 
 print(cars)
 
-for (x, y, w, h) in cars:
-    cv2.rectangle(openImg, (x,y), (x+w, y+h), (0,255,0), 2)
+car1 = cars[0]
+(x,y,w,h) = car1
+cv2.rectangle(openImg, (x,y), (x+w, y+h), (0,255,0), 2)
 
 
 cv2.imshow("Basic AutoPilot AI", openImg)
